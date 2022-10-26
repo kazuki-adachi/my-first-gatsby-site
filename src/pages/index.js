@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 const pageStyles = {
   color: "#232129",
@@ -10,9 +11,6 @@ const headingStyles = {
   marginBottom: 64,
   maxWidth: 320,
 };
-const headingAccentStyles = {
-  color: "#663399",
-};
 const contentful = require("contentful");
 
 console.log("client");
@@ -23,41 +21,42 @@ const client = contentful.createClient({
   accessToken: "CUfW1WGxZaRkWc2mEnMMsc5anGKpCNZtNrKLyS9sTeA",
 });
 
-//指定した3件のエントリーを取得
-client.getEntries().then((entries) => {
-  console.log("指定した3件のエントリーを取得");
-  console.log(entries.items[1].fields.title);//テスト成功
-  console.log(entries.items[2].fields.course.fields.title);//Hello Contentful
-  console.log(entries.items[5].fields.title);//Content model > image
-  console.log("-------------------");
-});
-
 //エントリーIDを指定して、単一のエントリーを取得
-client.getEntry("3KinTi83FecuMeiUo0qGU4").then(entry => {
+client.getEntry("3KinTi83FecuMeiUo0qGU4").then((entry) => {
   console.log("エントリーIDを指定して、単一のエントリーを取得");
   console.log(entry.fields.title);
   console.log("-------------------");
 });
 
+//エントリーIDを指定して、テキストを取得
+client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
+  console.log("エントリーIDを指定して、単一のエントリーを取得");
+  console.log(entry.fields.title);
+  console.log(entry.fields.reactHookFrom);
+  console.log("-------------------");
+});
+
 const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      contentfulCategory(title: { eq: "example" }) {
+        title
+      }
+    }
+  `);
+  
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
         Hello World!
-        <span style={headingAccentStyles}>🎉🎉🎉</span>
+        <span>🎉🎉🎉</span>
       </h1>
       <body>
-      <h2>
-        body
-      </h2>
-        <script>
-          document.write("BODYテスト");
-        </script>
+        <h2>{data.contentfulCategory.title}</h2>
       </body>
     </main>
   );
 };
 
 export default IndexPage;
-
 export const Head = () => <title>Home Page</title>;
