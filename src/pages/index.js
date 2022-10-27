@@ -53,6 +53,7 @@ const IndexPage = () => {
       </h1>
       <body>
         <h2>{data.contentfulCategory.title}</h2>
+        <h2>テスト成功</h2>
       </body>
     </main>
   );
