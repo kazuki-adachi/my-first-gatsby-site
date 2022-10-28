@@ -37,6 +37,7 @@ client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
 });
 
 const IndexPage = () => {
+
   const data = useStaticQuery(graphql`
     {
       contentfulCategory(title: { eq: "example" }) {
@@ -44,7 +45,7 @@ const IndexPage = () => {
       }
     }
   `);
-  
+  const api ="見えたらダメなやつ"
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
