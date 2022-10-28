@@ -47,7 +47,6 @@ const IndexPage = () => {
   `);
   const api ="見えたらダメなやつ"
   console.log(process.env.FAVORITES_FOOD)
-  api += (process.env.FAVORITES_FOOD)
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
