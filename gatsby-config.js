@@ -14,7 +14,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
-    "gatsby-redirect-from",
+    //"gatsby-redirect-from",
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -22,7 +22,7 @@ module.exports = {
         accessToken:`CUfW1WGxZaRkWc2mEnMMsc5anGKpCNZtNrKLyS9sTeA`
       }
     },
-    "gatsby-plugin-meta-redirect", // make sure this is always the last one
+    //"gatsby-plugin-meta-redirect", // make sure this is always the last one
   ],
   
 }
