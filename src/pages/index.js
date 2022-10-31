@@ -45,7 +45,6 @@ const IndexPage = () => {
       }
     }
   `);
-  const api ="見えたらダメなやつ"
   console.log("-----環境変数-----")
   console.log(process.env.FAVORITES_FOOD)
   console.log("---------------")
@@ -62,6 +61,18 @@ const IndexPage = () => {
     </main>
   );
 };
-
+const redirectCheck　= "ture"
+if (redirectCheck == "ture") {
+  // exports.createPages = ({ graphql, actions }) => {
+  //   const { createRedirect } = actions
+  //   createRedirect({
+  //     fromPath: 'https://gatsby-starter-portfolio-nnn.netlify.com/*',
+  //     toPath: 'https://gatsby-starter-portfolio.nakamu.life/:splat',
+  //     isPermanent: true,
+  //     force: true
+  //   })
+  // }
+}
 export default IndexPage;
+
 export const Head = () => <title>Home Page</title>;
