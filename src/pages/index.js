@@ -37,7 +37,6 @@ client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
 });
 
 const IndexPage = () => {
-
   const data = useStaticQuery(graphql`
     {
       contentfulCategory(title: { eq: "example" }) {
@@ -45,14 +44,15 @@ const IndexPage = () => {
       }
     }
   `);
-  console.log("-----環境変数-----")
-  console.log(process.env.FAVORITES_FOOD)
-  console.log("---------------")
+  console.log("-----環境変数-----");
+  console.log(process.env.FAVORITES_FOOD);
+  console.log("---------------");
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
         Hello World!
         <span>🎉🎉🎉</span>
+        {process.env.ENV}
       </h1>
       <body>
         <h2>{data.contentfulCategory.title}</h2>
@@ -61,17 +61,18 @@ const IndexPage = () => {
     </main>
   );
 };
-const redirectCheck　= "ture"
+const redirectCheck = "false";
 if (redirectCheck == "ture") {
-  // exports.createPages = ({ graphql, actions }) => {
-  //   const { createRedirect } = actions
-  //   createRedirect({
-  //     fromPath: 'https://gatsby-starter-portfolio-nnn.netlify.com/*',
-  //     toPath: 'https://gatsby-starter-portfolio.nakamu.life/:splat',
-  //     isPermanent: true,
-  //     force: true
-  //   })
-  // }
+  exports.createPages = ({ graphql, actions }) => {
+    const { createRedirect } = actions;
+    createRedirect({
+      fromPath: "https://deploy-preview-9--lively-dango-fdd78c.netlify.app/",
+      toPath:
+        "https://deploy-preview-9--lively-dango-fdd78c.netlify.app/redirect",
+      isPermanent: true,
+      force: true,
+    });
+  };
 }
 export default IndexPage;
 
