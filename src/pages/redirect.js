@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import callApi from "../api/JSONPlaceholder";
 
 const pageStyles = {
   color: "#232129",
@@ -37,10 +36,7 @@ client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
   console.log("-------------------");
 });
 
-//APIの呼び出し
-console.log(JSON.stringify(callApi));
-
-const IndexPage = () => {
+　const IndexRedirectPage = () => {
   const data = useStaticQuery(graphql`
     {
       contentfulCategory(title: { eq: "example" }) {
@@ -60,17 +56,9 @@ const IndexPage = () => {
       </h1>
       <body>
         <h2>{data.contentfulCategory.title}</h2>
-        <h2>テスト成功</h2>
+        <h2>リダイレクト成功</h2>
       </body>
     </main>
   );
 };
-
-const redirectCheck = "";
-
-if (redirectCheck == "ture") {
- //redirectへ遷移
- window.location.href = 'redirect';
-}
-export default IndexPage;
-export const Head = () => <title>Home Page</title>;
+export default IndexRedirectPage;
