@@ -61,7 +61,7 @@ const IndexPage = () => {
     </main>
   );
 };
-const redirectCheck = "false";
+const redirectCheck = "ture";
 if (redirectCheck == "ture") {
   exports.createPages = ({ graphql, actions }) => {
     const { createRedirect } = actions;
