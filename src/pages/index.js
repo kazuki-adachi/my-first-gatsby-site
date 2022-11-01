@@ -41,7 +41,10 @@ client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
 console.log(JSON.stringify(callApi));
 
 const IndexPage = () => {
+
+  //レンダリングの処理
   const redirectCheck = 2;
+  //navigate
   switch (redirectCheck) {
     case 1:
       //redirectへ遷移
@@ -80,8 +83,5 @@ const IndexPage = () => {
     </main>
   );
 };
-
-
-
 export default IndexPage;
 export const Head = () => <title>Home Page</title>;
