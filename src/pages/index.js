@@ -66,11 +66,21 @@ const IndexPage = () => {
   );
 };
 
-const redirectCheck = "";
+const redirectCheck = 2;
 
-if (redirectCheck == "ture") {
- //redirectへ遷移
- window.location.href = 'redirect';
+switch (redirectCheck) {
+  case 1:
+    //redirectへ遷移
+    window.location.href = "redirect";
+    break;
+  case 2:
+    //ssrへ遷移
+    window.location.href = "ssr";
+    break;
+
+  default:
+    console.log("リダイレクト未設定");
 }
+
 export default IndexPage;
 export const Head = () => <title>Home Page</title>;
