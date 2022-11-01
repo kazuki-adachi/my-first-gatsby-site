@@ -70,11 +70,10 @@ const IndexPage = () => {
   console.log("-----環境変数-----");
   console.log(process.env.FAVORITES_FOOD);
   console.log("---------------");
-  const isBrowser = typeof window !== "undefined";
   const now = dayjs().unix();
   const startDate = dayjs("2022-10-31").unix();
   const endDate = dayjs("2022-11-02").unix();
-  if (now > startDate && now < endDate && isBrowser) {
+  if (now > startDate && now < endDate) {
     return <Redirect to="/ssr" noThrow />;
   }
   return (
