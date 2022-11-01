@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useStaticQuery, graphql, navigate} from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import { Redirect } from "@reach/router";
 import callApi from "../api/JSONPlaceholder";
 
 const pageStyles = {
@@ -53,11 +54,11 @@ const IndexPage = () => {
   //     //ssrへ遷移
   //     navigate('/ssr');
   //     break;
-  
+
   //   default:
   //     console.log("リダイレクト未設定");
   // }
-  
+
   const data = useStaticQuery(graphql`
     {
       contentfulCategory(title: { eq: "example" }) {
@@ -68,7 +69,7 @@ const IndexPage = () => {
   console.log("-----環境変数-----");
   console.log(process.env.FAVORITES_FOOD);
   console.log("---------------");
-  navigate('/ssr');
+  return <Redirect from="/" to="/ssr" />;
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
