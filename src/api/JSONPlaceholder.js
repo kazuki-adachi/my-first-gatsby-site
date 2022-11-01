@@ -5,7 +5,6 @@ async function callApi() {
     console.log("-------API--------");
     console.log(users)
     console.log('出力結果: ' + users.length);
-    const SumCallapi = users.length;
     console.log("---------------");
   };
   callApi();
