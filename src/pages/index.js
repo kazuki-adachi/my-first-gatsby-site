@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, navigate} from "gatsby";
 import callApi from "../api/JSONPlaceholder";
 
 const pageStyles = {
@@ -41,6 +41,21 @@ client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
 console.log(JSON.stringify(callApi));
 
 const IndexPage = () => {
+  const redirectCheck = 2;
+  switch (redirectCheck) {
+    case 1:
+      //redirectへ遷移
+      navigate('/redirect');
+      break;
+    case 2:
+      //ssrへ遷移
+      navigate('/ssr');
+      break;
+  
+    default:
+      console.log("リダイレクト未設定");
+  }
+  
   const data = useStaticQuery(graphql`
     {
       contentfulCategory(title: { eq: "example" }) {
@@ -66,21 +81,7 @@ const IndexPage = () => {
   );
 };
 
-const redirectCheck = 1;
 
-switch (redirectCheck) {
-  case 1:
-    //redirectへ遷移
-    window.location.href = "redirect";
-    break;
-  case 2:
-    //ssrへ遷移
-    window.location.href = "ssr";
-    break;
-
-  default:
-    console.log("リダイレクト未設定");
-}
 
 export default IndexPage;
 export const Head = () => <title>Home Page</title>;
