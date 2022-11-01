@@ -66,7 +66,7 @@ const IndexPage = () => {
   );
 };
 
-const redirectCheck = 2;
+const redirectCheck = 1;
 
 switch (redirectCheck) {
   case 1:
