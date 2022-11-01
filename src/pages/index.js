@@ -41,23 +41,22 @@ client.getEntry("4hjZs8hkD8yt5QjwMCCnHd").then((entry) => {
 console.log(JSON.stringify(callApi));
 
 const IndexPage = () => {
-
-  //レンダリングの処理
-  const redirectCheck = 2;
-  //navigate
-  switch (redirectCheck) {
-    case 1:
-      //redirectへ遷移
-      navigate('/redirect');
-      break;
-    case 2:
-      //ssrへ遷移
-      navigate('/ssr');
-      break;
+  // //レンダリングの処理
+  // const redirectCheck = 2;
+  // //navigate
+  // switch (redirectCheck) {
+  //   case 1:
+  //     //redirectへ遷移
+  //     navigate('/redirect');
+  //     break;
+  //   case 2:
+  //     //ssrへ遷移
+  //     navigate('/ssr');
+  //     break;
   
-    default:
-      console.log("リダイレクト未設定");
-  }
+  //   default:
+  //     console.log("リダイレクト未設定");
+  // }
   
   const data = useStaticQuery(graphql`
     {
@@ -69,6 +68,7 @@ const IndexPage = () => {
   console.log("-----環境変数-----");
   console.log(process.env.FAVORITES_FOOD);
   console.log("---------------");
+  navigate('/ssr');
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
